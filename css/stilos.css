@@ -1,5 +1,6 @@
 body {
     padding: 0.2rem;
+    flex: 1;
 }
 
 body,
@@ -11,6 +12,10 @@ body * {
     text-align: center;
     align-items: center;
     overflow: scroll;
+}
+
+body>* {
+    width: 100%;
 }
 
 header {
