@@ -34,12 +34,29 @@
 <body>
     <header><span>RESULTADO DA QUARENTENA</span></header>
     <div class="conteudo">
-        <div id="listavazia" class="listavazia">
-            <img src="./recursos/imagens/balança_bonita.png" alt="Balança envolta em ramos">
-        </div>
-        <div id="lista" class="listavazia hidden">
-            <img src="./recursos/imagens/balança_bonita.png" alt="Balança envolta em ramos">
-        </div>
+        <img id="listavazia" class="listavazia hidden" src="./recursos/imagens/balança_bonita.png" alt="Balança envolta em ramos">
+        <ul id="lista" class="lista">
+            <li class="listaitem listaheader">
+                <div>
+                    <span>I.M.C.</span>
+                </div>
+                <div>
+                    <span>Data</span>
+                </div>
+                <div></div>
+            </li>
+            <li class="listaitem">
+                <div>
+                    <span>20.5</span>
+                </div>
+                <div>
+                    <span>01/03/2020</span>
+                </div>
+                <div>
+                    <button class="perigo">Excluir</button>
+                </div>
+            </li>
+        </ul>
     </div>
     <div id="barramedia" class="barramedia">
         <button class="novoimc sucesso">Novo I.M.C.</button>

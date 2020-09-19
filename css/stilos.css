@@ -1,3 +1,8 @@
+body {
+    padding: 0.2rem;
+}
+
+body,
 body * {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
@@ -5,6 +10,7 @@ body * {
     justify-content: center;
     text-align: center;
     align-items: center;
+    overflow: scroll;
 }
 
 header {
@@ -14,7 +20,6 @@ header {
     color: #fff;
     background: #1d3a4e;
     border: thin solid #0c293d;
-    /* flex: 1; */
     position: fixed;
     top: 0;
     width: 100%;
@@ -23,11 +28,35 @@ header {
 button {
     border-radius: 10px;
     font-size: 1.2rem;
+    height: 3rem;
 }
 
 .conteudo {
     padding: 4rem 1rem 1rem 1rem;
-    overflow: scroll;
+}
+
+.conteudo,
+.lista,
+.lista li {
+    width: 100%;
+}
+
+.listaheader {
+    font-weight: 700;
+    border-bottom: thin solid #2c2c2c;
+}
+
+.listaitem {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.listaitem>* {
+    flex: 1;
+}
+
+.listaitem button {
+    margin: 0.2rem;
 }
 
 
@@ -36,22 +65,29 @@ button {
 
 /* .listavazia {} */
 
-.listavazia img {
+.listavazia {
     max-width: 75%;
-    max-height: 40%;
 }
 
 .barramedia {
     display: flex;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
-    padding: 1rem;
+    padding: 0.5rem;
+}
+
+.barramedia>* {
+    width: 100%;
 }
 
 .barramedia>span {
     font-size: 1.2rem;
-    padding-top: 5%;
+    padding-top: 1rem;
+}
+
+.barramedia>progress {
+    height: 2rem;
 }
 
 .graduacao {
@@ -63,11 +99,6 @@ button {
 .novoimc {
     width: 80%;
 }
-
-
-/* .graduacao span {
-    font-size: 0.1rem;
-} */
 
 .primaria {
     color: #fff;

@@ -3,6 +3,7 @@
     "short_name": "RQ",
     "start_url": "./html/index.html",
     "display": "standalone",
+    "orientation": "portrait",
     "icons": [{
             "src": "./recursos/icones/android-icon-36x36.png",
             "sizes": "36x36",
