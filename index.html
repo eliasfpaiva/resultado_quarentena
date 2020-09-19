@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/stilos.css">
+    <link rel="stylesheet" href="./css/base.css">
+
     <link rel="manifest" href="./manifest.webmanifest">
 
     <link rel="apple-touch-icon" sizes="57x57" href="./recursos/icones/apple-icon-57x57.png">
@@ -33,7 +35,7 @@
 
 <body>
     <header><span>RESULTADO DA QUARENTENA</span></header>
-    <div id="pagina1">
+    <div id="pagina1" class="hidden">
         <div class="conteudo">
             <img id="listavazia" class="listavazia hidden" src="./recursos/imagens/balança_bonita.png" alt="Balança envolta em ramos">
             <ul id="lista" class="lista">
@@ -75,6 +77,20 @@
         </div>
     </div>
     <div id="pagina2">
+        <div class="conteudo">
+            <div class="entrada">
+                <label for="peso">Peso em quilogramas:</label>
+                <input type="text" name="peso" id="peso">
+            </div>
+            <div class="entrada">
+                <label for="altura">Altura em metros:</label>
+                <input type="text" name="altura" id="altura">
+            </div>
+            <div class="entrada">
+                <label for="idade">Idade em anos</label>
+                <input type="text" name="idade" id="idade">
+            </div>
+        </div>
     </div>
 </body>
 

@@ -64,12 +64,6 @@ button {
     margin: 0.2rem;
 }
 
-
-/* .conteudo * {} */
-
-
-/* .listavazia {} */
-
 .listavazia {
     max-width: 75%;
 }
@@ -105,87 +99,6 @@ button {
     width: 80%;
 }
 
-.primaria {
-    color: #fff;
-    background: #3b78ac;
-    border: thin solid #2a679b;
-}
-
-.primaria:active {
-    background: #19568a;
-    border: thin solid #084579;
-}
-
-.secundaria {
-    color: #000;
-    background: #cddfeb;
-    border: thin solid #bcceda;
-}
-
-.secundaria:active {
-    background: #abbdc9;
-    border: thin solid #9aacb8;
-}
-
-.sucesso {
-    color: #fff;
-    background: #2a9d8f;
-    border: thin solid #198c7e;
-}
-
-.sucesso:active {
-    background: #087b6d;
-    border: thin solid #006a5c;
-}
-
-.alerta {
-    color: #000;
-    background: #ffd166;
-    border: thin solid #eec055;
-}
-
-.alerta:active {
-    background: #ddb044;
-    border: thin solid #cca033;
-}
-
-.perigo {
-    color: #fff;
-    background: #ef233c;
-    border: thin solid #de122b;
-}
-
-.perigo:active {
-    background: #cd011a;
-    border: thin solid #bc0009;
-}
-
-.claro {
-    color: #000;
-    background: #edf6f9;
-    border: thin solid #dce5e8;
-}
-
-.claro:active {
-    background: #cbd4d7;
-    border: thin solid #bac3c6;
-}
-
-.escuro {
-    color: #fff;
-    background: #1d3a4e;
-    border: thin solid #0c293d;
-}
-
-.escuro:active {
-    background: #00182c;
-    border: thin solid #00071b;
-}
-
-.hidden {
-    display: none;
-}
-
-script {
-    display: none;
+.entrada {
+    flex-direction: row;
 }
