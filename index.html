@@ -79,16 +79,33 @@
     <div id="pagina2">
         <div class="conteudo">
             <div class="entrada">
-                <label for="peso">Peso em quilogramas:</label>
-                <input type="text" name="peso" id="peso">
+                <label for="peso">Peso:</label>
+                <input type="number" class="claro" name="peso" id="peso" placeholder="kg" autocomplete="off" step="0.1">
             </div>
             <div class="entrada">
-                <label for="altura">Altura em metros:</label>
-                <input type="text" name="altura" id="altura">
+                <label for="altura">Altura:</label>
+                <input type="number" class="claro" name="altura" id="altura" placeholder="m" autocomplete="off" step="0.1">
             </div>
             <div class="entrada">
-                <label for="idade">Idade em anos</label>
-                <input type="text" name="idade" id="idade">
+                <label for="idade">Idade:</label>
+                <input type="number" class="claro" name="idade" id="idade" placeholder="anos" autocomplete="off" step="1">
+            </div>
+            <div class="entrada">
+                <label>Sexo:</label>
+                <div>
+                    <div>
+                        <input type="radio" name="sexo" id="sexoXX" value="XX">
+                        <label for="sexoXX">XX</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="sexo" id="sexoXY" value="XY">
+                        <label for="sexoXY">XY</label>
+                    </div>
+                </div>
+            </div>
+            <div class="botoes">
+                <button id="btn-cancelar" class="perigo">Cancelar</button>
+                <button id="btn-salvar" class="sucesso">salvar</button>
             </div>
         </div>
     </div>
