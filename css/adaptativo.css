@@ -9,6 +9,15 @@
     .lista {
         margin-bottom: 4.5rem;
     }
+    .formulario {
+        width: 50%;
+    }
+    .entrada {
+        justify-content: center;
+    }
+    .entrada label {
+        width: 10%;
+    }
 }
 
 @media (orientation: portrait) {

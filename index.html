@@ -36,9 +36,9 @@
 
 <body>
     <header><span>RESULTADO DA QUARENTENA</span></header>
-    <div id="pagina1" class="pagina">
-        <img id="listavazia" class="listavazia hidden" src="./recursos/imagens/balança_bonita.png" alt="Balança envolta em ramos">
-        <ul id="lista" class="lista ">
+    <div id="pagina1" class="pagina hidden">
+        <img id="listavazia" class="listavazia " src="./recursos/imagens/balança_bonita.png" alt="Balança envolta em ramos">
+        <ul id="lista" class="lista hidden">
             <li class="listaheader">
                 <span>I.M.C.</span>
                 <span>Data</span>
@@ -169,36 +169,36 @@
             </div>
         </div>
     </div>
-    <div id="pagina2" class="pagina hidden">
-        <div>
-            <div>
+    <div id="pagina2" class="pagina ">
+        <div class="formulario">
+            <div class="entrada">
                 <label for="peso">Peso:</label>
                 <input type="number" name="peso" id="peso" placeholder="kg" autocomplete="off" step="0.1">
             </div>
-            <div>
+            <div class="entrada">
                 <label for="altura">Altura:</label>
                 <input type="number" name="altura" id="altura" placeholder="m" autocomplete="off" step="0.1">
             </div>
-            <div>
+            <div class="entrada">
                 <label for="idade">Idade:</label>
                 <input type="number" name="idade" id="idade" placeholder="anos" autocomplete="off" step="1">
             </div>
-            <div>
+            <div class="entrada">
                 <label>Sexo:</label>
-                <div>
-                    <div>
+                <div class="radio">
+                    <div class="opcaoradio">
                         <input type="radio" name="sexo" id="sexoXX" value="XX">
                         <label for="sexoXX">XX</label>
                     </div>
-                    <div>
+                    <div class="opcaoradio">
                         <input type="radio" name="sexo" id="sexoXY" value="XY">
                         <label for="sexoXY">XY</label>
                     </div>
                 </div>
             </div>
             <div class="botoes">
-                <button id="btn-cancelar">Cancelar</button>
-                <button id="btn-salvar">Salvar</button>
+                <button id="btn-cancelar" class="perigo">Cancelar</button>
+                <button id="btn-salvar" class="sucesso">Salvar</button>
             </div>
         </div>
     </div>
