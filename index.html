@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/stilos.css">
+    <link rel="stylesheet" href="./css/adaptativo.css">
     <link rel="stylesheet" href="./css/base.css">
 
     <link rel="manifest" href="./manifest.webmanifest">
@@ -35,62 +36,154 @@
 
 <body>
     <header><span>RESULTADO DA QUARENTENA</span></header>
-    <div id="pagina1" class="hidden">
-        <div class="conteudo">
-            <img id="listavazia" class="listavazia hidden" src="./recursos/imagens/balança_bonita.png" alt="Balança envolta em ramos">
-            <ul id="lista" class="lista">
-                <li class="listaitem listaheader">
-                    <div>
-                        <span>I.M.C.</span>
-                    </div>
-                    <div>
-                        <span>Data</span>
-                    </div>
-                    <div></div>
-                </li>
-                <li class="listaitem">
-                    <div>
-                        <span>20.5</span>
-                    </div>
-                    <div>
-                        <span>01/03/2020</span>
-                    </div>
-                    <div>
-                        <button class="perigo">Excluir</button>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div id="barramedia" class="barramedia">
-            <button class="novoimc sucesso">Novo I.M.C.</button>
-            <span>Média</span>
-            <progress max="42" value="22"></progress>
-            <div class="graduacao">
-                <span>M.A.P.</span>
-                <span>AB.P.</span>
-                <span>P.N.</span>
-                <span>AC.P.</span>
-                <span>O.1</span>
-                <span>O.2</span>
-                <span>O.3</span>
+    <div id="pagina1" class="pagina">
+        <img id="listavazia" class="listavazia hidden" src="./recursos/imagens/balança_bonita.png" alt="Balança envolta em ramos">
+        <ul id="lista" class="lista ">
+            <li class="listaheader">
+                <span>I.M.C.</span>
+                <span>Data</span>
+                <div></div>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>20.5</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+            <li class="listaitem">
+                <span>30</span>
+                <span>01/03/2020</span>
+                <button class="perigo">Excluir</button>
+            </li>
+        </ul>
+        <div id="barrainferior" class="barrainferior">
+            <div class="novoimc">
+                <button class="sucesso">Novo I.M.C.</button>
+            </div>
+            <div class="resultado">
+                <span>Média</span>
+                <progress max="42" value="22"></progress>
+                <div class="graduacao">
+                    <div>M.A.P.</div>
+                    <div>AB.P.</div>
+                    <div>P.N.</div>
+                    <div>AC.P.</div>
+                    <div>O.1</div>
+                    <div>O.2</div>
+                    <div>O.3</div>
+                </div>
             </div>
         </div>
     </div>
-    <div id="pagina2">
-        <div class="conteudo">
-            <div class="entrada">
+    <div id="pagina2" class="pagina hidden">
+        <div>
+            <div>
                 <label for="peso">Peso:</label>
-                <input type="number" class="claro" name="peso" id="peso" placeholder="kg" autocomplete="off" step="0.1">
+                <input type="number" name="peso" id="peso" placeholder="kg" autocomplete="off" step="0.1">
             </div>
-            <div class="entrada">
+            <div>
                 <label for="altura">Altura:</label>
-                <input type="number" class="claro" name="altura" id="altura" placeholder="m" autocomplete="off" step="0.1">
+                <input type="number" name="altura" id="altura" placeholder="m" autocomplete="off" step="0.1">
             </div>
-            <div class="entrada">
+            <div>
                 <label for="idade">Idade:</label>
-                <input type="number" class="claro" name="idade" id="idade" placeholder="anos" autocomplete="off" step="1">
+                <input type="number" name="idade" id="idade" placeholder="anos" autocomplete="off" step="1">
             </div>
-            <div class="entrada">
+            <div>
                 <label>Sexo:</label>
                 <div>
                     <div>
@@ -104,8 +197,8 @@
                 </div>
             </div>
             <div class="botoes">
-                <button id="btn-cancelar" class="perigo">Cancelar</button>
-                <button id="btn-salvar" class="sucesso">salvar</button>
+                <button id="btn-cancelar">Cancelar</button>
+                <button id="btn-salvar">Salvar</button>
             </div>
         </div>
     </div>

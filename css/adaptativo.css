@@ -1,0 +1,28 @@
+@media (orientation: landscape) {
+    .barrainferior {
+        flex-direction: row;
+    }
+    .novoimc,
+    .resultado {
+        width: 48%;
+    }
+    .lista {
+        margin-bottom: 4.5rem;
+    }
+}
+
+@media (orientation: portrait) {
+    .barrainferior {
+        flex-direction: column;
+    }
+    .novoimc,
+    .resultado {
+        width: 95%;
+    }
+    .resultado {
+        padding-top: 0.5rem;
+    }
+    .lista {
+        margin-bottom: 7rem;
+    }
+}

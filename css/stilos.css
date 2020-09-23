@@ -1,4 +1,126 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 body {
+    display: flex;
+    width: 100%;
+}
+
+header {
+    height: 3rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background: #1d3a4e;
+    border: thin solid #0c293d;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    font-size: 1.1rem;
+    border-radius: 10px;
+    padding: 0.4rem;
+}
+
+.pagina {
+    padding: 3.5rem 1rem 0rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: scroll;
+    width: 100%;
+}
+
+.listavazia {
+    max-width: 90%;
+    max-height: 15rem;
+}
+
+.lista {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.listaheader,
+.listaitem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.listaheader {
+    border-bottom: thin solid #6e8e9e;
+    margin-bottom: 0.5rem;
+}
+
+.listaheader *,
+.listaitem * {
+    flex: 1;
+    text-align: center;
+}
+
+.listaitem {
+    margin-bottom: 0.2rem;
+}
+
+.listaitem button {
+    flex: 0.7;
+}
+
+.barrainferior {
+    color: #fff;
+    background: #1d3a4e;
+    border: thin solid #0c293d;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.novoimc,
+.resultado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultado progress {
+    width: 100%;
+}
+
+.graduacao {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* body {
     padding: 0.2rem;
     flex: 1;
 }
@@ -11,7 +133,6 @@ body * {
     justify-content: center;
     text-align: center;
     align-items: center;
-    overflow: scroll;
 }
 
 body>* {
@@ -38,6 +159,10 @@ button {
 
 .conteudo {
     padding: 4rem 1rem 1rem 1rem;
+}
+
+.lista {
+    overflow: scroll;
 }
 
 .conteudo,
@@ -69,7 +194,7 @@ button {
 }
 
 .barramedia {
-    display: flex;
+    display: fixed;
     position: relative;
     bottom: 0;
     width: 100%;
@@ -110,7 +235,7 @@ button {
 
 .entrada>input {
     flex: 0.8;
-    font-size: 2rem;
+    font-size: 1.0rem;
 }
 
 .entrada label {
@@ -144,4 +269,4 @@ button {
 
 .botoes button {
     flex: 0.4;
-}
+} */
