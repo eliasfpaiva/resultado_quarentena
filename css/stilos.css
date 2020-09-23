@@ -24,9 +24,9 @@ header {
 }
 
 button {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     border-radius: 10px;
-    padding: 0.4rem;
+    margin: 0.2rem;
 }
 
 .pagina {
@@ -76,9 +76,10 @@ button {
     margin-bottom: 0.2rem;
 }
 
-.listaitem button {
+
+/* .listaitem button {
     flex: 0.7;
-}
+} */
 
 .barrainferior {
     color: #fff;
