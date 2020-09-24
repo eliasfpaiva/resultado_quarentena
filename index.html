@@ -154,7 +154,7 @@
         </ul>
         <div id="barrainferior" class="barrainferior">
             <div class="novoimc">
-                <button class="sucesso">Novo I.M.C.</button>
+                <button id="btn_novoimc" class="sucesso">Novo I.M.C.</button>
             </div>
             <div class="resultado">
                 <span>Média</span>
@@ -199,8 +199,8 @@
                 </div>
             </div>
             <div class="botoes">
-                <button id="btn-cancelar" class="perigo">Cancelar</button>
-                <button id="btn-salvar" class="sucesso">Salvar</button>
+                <button id="btn_cancelar" class="perigo">Cancelar</button>
+                <button id="btn_salvar" class="sucesso">Salvar</button>
             </div>
         </div>
     </div>
@@ -208,26 +208,26 @@
         <div class="formulario">
             <div class="campo">
                 <label for="valorpeso">Peso:</label>
-                <input type="number" name="peso" id="valorpeso" disabled>
+                <input type="number" name="valorpeso" id="valorpeso" disabled>
             </div>
             <div class="campo">
                 <label for="valoraltura">Altura:</label>
-                <input type="number" name="altura" id="valoraltura" disabled>
+                <input type="number" name="valoraltura" id="valoraltura" disabled>
             </div>
             <div class="campo">
                 <label for="valoridade">Idade:</label>
-                <input type="number" name="idade" id="valoridade" disabled>
+                <input type="number" name="valoridade" id="valoridade" disabled>
             </div>
             <div class="campo">
                 <label>Sexo:</label>
                 <div class="radio">
                     <div class="opcaoradio">
-                        <input type="radio" name="sexo" id="sexoXX" value="XX" disabled checked>
-                        <label for="sexoXX">XX</label>
+                        <input type="radio" name="valorsexoXX" id="valorsexoXX" value="XX" disabled>
+                        <label for="valorsexoXX">XX</label>
                     </div>
                     <div class="opcaoradio">
-                        <input type="radio" name="sexo" id="sexoXY" value="XY" disabled>
-                        <label for="sexoXY">XY</label>
+                        <input type="radio" name="valorsexoXY" id="valorsexoXY" value="XY" disabled>
+                        <label for="valorsexoXY">XY</label>
                     </div>
                 </div>
             </div>
@@ -240,18 +240,18 @@
                 <span type="date" name="data" id="valordata">28,35</span>
             </div>
             <div class="botoes">
-                <button id="btn-cancelar" class="claro">voltar</button>
+                <button id="btn_voltar" class="claro">voltar</button>
             </div>
         </div>
     </div>
     <div class="modalbackgroud hidden">
-        <div class="modal">
-            <h2>Muito abaixo do peso</h2>
+        <div id="modal" class="modal">
+            <h2 id="tituloModal"></h2>
             <hr>
-            <p>Entre 30 e 34,99</p>
+            <p id="textoModal"></p>
             <hr>
             <div class="botoes">
-                <button>Voltar</button>
+                <button id="btn_voltarmodal">Voltar</button>
             </div>
         </div>
     </div>
