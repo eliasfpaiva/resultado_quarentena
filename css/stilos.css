@@ -1,5 +1,6 @@
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    z-index: 0;
 }
 
 body {
@@ -9,7 +10,6 @@ body {
 
 header {
     height: 3rem;
-    font-size: 1.2rem;
     color: #fff;
     background: #1d3a4e;
     border: thin solid #0c293d;
@@ -21,6 +21,12 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    z-index: 1;
+}
+
+h1,
+h2 {
+    font-size: 1.3rem;
 }
 
 button {
@@ -119,7 +125,7 @@ button {
     justify-content: center;
 }
 
-.entrada {
+.campo {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -128,14 +134,22 @@ button {
     margin-bottom: 1rem;
 }
 
-.entrada input {
+.campo input {
     text-align: center;
     font-size: 1.5rem;
     width: 70%;
 }
 
-.entrada label {
+.campo label {
     margin-right: 1rem;
+}
+
+.dados {
+    justify-content: center;
+}
+
+.imc {
+    font-size: 1.5rem;
 }
 
 .radio,
@@ -173,4 +187,51 @@ button {
     font-size: 1.5rem;
     width: 45%;
     height: 2.5rem;
+}
+
+.modalbackgroud {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background: rgb(29, 58, 78, 0.3);
+    transition: 1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 15px;
+    color: #fff;
+    background: #1d3a4e;
+    border: 0.3rem solid #3e5c6e;
+}
+
+.modal hr {
+    width: 95%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.modal .botoes {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal .botoes button {
+    width: 70%;
+    height: 3rem;
 }

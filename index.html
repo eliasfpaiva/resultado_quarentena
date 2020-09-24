@@ -35,8 +35,10 @@
 </head>
 
 <body>
-    <header><span>RESULTADO DA QUARENTENA</span></header>
-    <div id="pagina1" class="pagina hidden">
+    <header>
+        <h1>RESULTADO DA QUARENTENA</h1>
+    </header>
+    <div id="pagina1" class="pagina ">
         <img id="listavazia" class="listavazia " src="./recursos/imagens/balança_bonita.png" alt="Balança envolta em ramos">
         <ul id="lista" class="lista hidden">
             <li class="listaheader">
@@ -169,21 +171,21 @@
             </div>
         </div>
     </div>
-    <div id="pagina2" class="pagina ">
+    <div id="pagina2" class="pagina hidden">
         <div class="formulario">
-            <div class="entrada">
+            <div class="campo">
                 <label for="peso">Peso:</label>
                 <input type="number" name="peso" id="peso" placeholder="kg" autocomplete="off" step="0.1">
             </div>
-            <div class="entrada">
+            <div class="campo">
                 <label for="altura">Altura:</label>
                 <input type="number" name="altura" id="altura" placeholder="m" autocomplete="off" step="0.1">
             </div>
-            <div class="entrada">
+            <div class="campo">
                 <label for="idade">Idade:</label>
                 <input type="number" name="idade" id="idade" placeholder="anos" autocomplete="off" step="1">
             </div>
-            <div class="entrada">
+            <div class="campo">
                 <label>Sexo:</label>
                 <div class="radio">
                     <div class="opcaoradio">
@@ -199,6 +201,57 @@
             <div class="botoes">
                 <button id="btn-cancelar" class="perigo">Cancelar</button>
                 <button id="btn-salvar" class="sucesso">Salvar</button>
+            </div>
+        </div>
+    </div>
+    <div id="pagina3" class="pagina hidden">
+        <div class="formulario">
+            <div class="campo">
+                <label for="valorpeso">Peso:</label>
+                <input type="number" name="peso" id="valorpeso" disabled>
+            </div>
+            <div class="campo">
+                <label for="valoraltura">Altura:</label>
+                <input type="number" name="altura" id="valoraltura" disabled>
+            </div>
+            <div class="campo">
+                <label for="valoridade">Idade:</label>
+                <input type="number" name="idade" id="valoridade" disabled>
+            </div>
+            <div class="campo">
+                <label>Sexo:</label>
+                <div class="radio">
+                    <div class="opcaoradio">
+                        <input type="radio" name="sexo" id="sexoXX" value="XX" disabled checked>
+                        <label for="sexoXX">XX</label>
+                    </div>
+                    <div class="opcaoradio">
+                        <input type="radio" name="sexo" id="sexoXY" value="XY" disabled>
+                        <label for="sexoXY">XY</label>
+                    </div>
+                </div>
+            </div>
+            <div class="campo dados">
+                <label for="valordata">Data:</label>
+                <span type="date" name="data" id="valordata">13/08/2020</span>
+            </div>
+            <div class="campo dados imc">
+                <label for="valordata">I.M.C:</label>
+                <span type="date" name="data" id="valordata">28,35</span>
+            </div>
+            <div class="botoes">
+                <button id="btn-cancelar" class="claro">voltar</button>
+            </div>
+        </div>
+    </div>
+    <div class="modalbackgroud hidden">
+        <div class="modal">
+            <h2>Muito abaixo do peso</h2>
+            <hr>
+            <p>Entre 30 e 34,99</p>
+            <hr>
+            <div class="botoes">
+                <button>Voltar</button>
             </div>
         </div>
     </div>
