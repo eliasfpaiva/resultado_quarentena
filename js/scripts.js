@@ -9,6 +9,7 @@ class IMC {
 
     constructor(peso, altura, sexo) {
         let data = new Date();
+
         this.id = data.getTime();
         this.peso = peso;
         this.altura = altura;
