@@ -13,10 +13,11 @@ class IMC {
         this.id = data.getTime();
         this.peso = peso;
         this.altura = altura;
-        this.data = data.getDate() + '/' + ((data.getMonth() + 1).toString().padStart(2, '0')) + data.getFullYear();
+        this.data = data.getDate() + '/' + ((data.getMonth() + 1).toString().padStart(2, '0')) + '/' + data.getFullYear();
         this.imc = this.peso / (this.altura * this.altura);
 
         localStorage.setItem('sexo', sexo);
+        localStorage.setItem('altura', altura);
     }
 }
 
@@ -41,7 +42,22 @@ const fecharmodal = () => {
     modal.parentElement.classList.add('hidden');
 }
 
+const limparCampos = () => {
+    peso.value = '';
+    altura.value = '';
+    document.querySelector('input[name="sexo"]:checked').checked = false;
+}
+
 const salvar = () => {
+    let _peso = new Number(peso.value);
+    let _altura = new Number(altura.value);
+    let _sexo = document.querySelector('input[name="sexo"]:checked').value;
+
+    let _imc = new IMC(_peso, _altura, _sexo);
+
+    localStorage.setItem(_imc.id, JSON.stringify(_imc));
+
+    limparCampos();
     mostrarModal(MODAL_DADOS_SALVOS);
     mostrarPagina(1);
 }
