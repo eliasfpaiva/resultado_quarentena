@@ -62,7 +62,10 @@ const validarFormulario = () => {
 const limparCampos = () => {
     peso.value = '';
     altura.value = '';
-    document.querySelector('input[name="sexo"]:checked').checked = false;
+
+    if (localStorage.getItem('sexo')) {
+        document.querySelector('input[name="sexo"]:checked').checked = false;
+    }
 }
 
 const salvar = () => {
@@ -178,7 +181,7 @@ const exibirItemIMC = (event) => {
 onload = () => {
     btn_novoimc.onclick = () => {
         mostrarPagina(2);
-        if (localStorage.length > 0) {
+        if (localStorage.getItem('sexo')) {
             document.querySelector('#sexo' + localStorage.getItem('sexo')).checked = true;
             altura.value = localStorage.getItem('altura');
         }
