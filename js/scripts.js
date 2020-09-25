@@ -13,10 +13,10 @@ class IMC {
         localStorage.setItem('altura', altura);
 
         this.id = data.getTime();
-        this.peso = peso;
-        this.altura = altura;
+        this.peso = new Number(peso);
+        this.altura = new Number(altura);
         this.data = data.getDate() + '/' + ((data.getMonth() + 1).toString().padStart(2, '0')) + '/' + data.getFullYear();
-        this.imc = this.peso / (this.altura * this.altura);
+        this.imc = (this.peso / (this.altura * this.altura)).toFixed(2);
     }
 }
 
@@ -66,8 +66,8 @@ const limparCampos = () => {
 
 const salvar = () => {
     if (validarFormulario()) {
-        let _peso = new Number(peso.value);
-        let _altura = new Number(altura.value);
+        let _peso = peso.value;
+        let _altura = altura.value;
         let _sexo = document.querySelector('input[name="sexo"]:checked').value;
 
         let _imc = new IMC(_peso, _altura, _sexo);
@@ -84,6 +84,11 @@ const salvar = () => {
 const excluirIMC = (event) => {
     let itemExcluido = event.target.parentElement;
     localStorage.removeItem(itemExcluido.getAttribute('data-id'));
+
+    if (localStorage.length === 2) {
+        localStorage.clear();
+    }
+
     carregaLista();
 }
 
@@ -93,7 +98,7 @@ const montaListaItem = (imc) => {
     li.classList.add('listaitem');
 
     let spanIMC = document.createElement('span');
-    spanIMC.innerText = imc.peso;
+    spanIMC.innerText = imc.imc;
     li.appendChild(spanIMC);
 
     let spanData = document.createElement('span');
@@ -153,7 +158,11 @@ const carregaLista = () => {
 }
 
 onload = () => {
-    btn_novoimc.onclick = () => { mostrarPagina(2); }
+    btn_novoimc.onclick = () => {
+        mostrarPagina(2);
+        document.querySelector('#sexo' + localStorage.getItem('sexo')).checked = true;
+        altura.value = localStorage.getItem('altura');
+    }
     btn_cancelar.onclick = () => {
         limparCampos();
         mostrarPagina(1);

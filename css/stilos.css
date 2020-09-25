@@ -48,6 +48,18 @@ button {
 }
 
 .listavazia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+}
+
+.listavazia * {
+    padding-bottom: 1rem;
+}
+
+.listavazia img {
     max-width: 90%;
     max-height: 15rem;
 }
