@@ -21,8 +21,6 @@ class IMC {
     }
 }
 
-const MODAL_DADOS_SALVOS = new ConteudoModal('Sucesso!', 'Dados salvos!');
-
 const mostrarPagina = (numeroPagina) => {
     document.querySelectorAll('.pagina').forEach(
         (pagina) => { pagina.classList.add('hidden'); }
@@ -79,7 +77,7 @@ const salvar = () => {
         localStorage.setItem(_imc.id, JSON.stringify(_imc));
 
         limparCampos();
-        mostrarModal(MODAL_DADOS_SALVOS);
+        mostrarModal(new ConteudoModal('Sucesso!', 'Dados salvos!'));
         mostrarPagina(1);
         carregaLista();
     }
@@ -178,6 +176,17 @@ const exibirItemIMC = (event) => {
     mostrarPagina(3);
 }
 
+const inserirChamadasModalGraduacao = () => {
+    let escalas = graduacao.children;
+    escalas[0].addEventListener('click', () => { mostrarModal(new ConteudoModal('Muito abaixo do peso', 'Abaixo de 17')) });
+    escalas[1].addEventListener('click', () => { mostrarModal(new ConteudoModal('Abaixo do peso', 'Entre 17 e 18,49')) });
+    escalas[2].addEventListener('click', () => { mostrarModal(new ConteudoModal('Peso normal', 'Entre 18,50 e 24,99')) });
+    escalas[3].addEventListener('click', () => { mostrarModal(new ConteudoModal('Acima do peso', 'Entre 25 e 29,99')) });
+    escalas[4].addEventListener('click', () => { mostrarModal(new ConteudoModal('Obesidade I', 'Entre 30 e 34,99')) });
+    escalas[5].addEventListener('click', () => { mostrarModal(new ConteudoModal('Obesidade II (Severa)', 'Entre 35 e 39,99')) });
+    escalas[6].addEventListener('click', () => { mostrarModal(new ConteudoModal('Obesidade III (Mórbida)', 'Acima de 40')) });
+}
+
 onload = () => {
     btn_novoimc.onclick = () => {
         mostrarPagina(2);
@@ -194,5 +203,6 @@ onload = () => {
     btn_salvar.onclick = () => { salvar(); }
     btn_voltarmodal.onclick = () => { fecharmodal(); }
 
+    inserirChamadasModalGraduacao();
     carregaLista();
 }
