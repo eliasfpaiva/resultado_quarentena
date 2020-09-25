@@ -77,15 +77,14 @@ const salvar = () => {
         limparCampos();
         mostrarModal(MODAL_DADOS_SALVOS);
         mostrarPagina(1);
+        carregaLista();
     }
 }
 
-{
-    /* <li class="listaitem">
-    <span>20.5</span>
-    <span>01/03/2020</span>
-    <button class="perigo">Excluir</button>
-    </li> */
+const excluirIMC = (event) => {
+    let itemExcluido = event.target.parentElement;
+    localStorage.removeItem(itemExcluido.getAttribute('data-id'));
+    carregaLista();
 }
 
 const montaListaItem = (imc) => {
@@ -93,9 +92,9 @@ const montaListaItem = (imc) => {
     li.setAttribute('data-id', imc.id);
     li.classList.add('listaitem');
 
-    let spanPeso = document.createElement('span');
-    spanPeso.innerText = imc.peso;
-    li.appendChild(spanPeso);
+    let spanIMC = document.createElement('span');
+    spanIMC.innerText = imc.peso;
+    li.appendChild(spanIMC);
 
     let spanData = document.createElement('span');
     spanData.innerText = imc.data;
@@ -104,15 +103,37 @@ const montaListaItem = (imc) => {
     let btnExcluir = document.createElement('button');
     btnExcluir.classList.add('perigo');
     btnExcluir.textContent = 'Excluir';
+    btnExcluir.addEventListener('click', excluirIMC);
     li.appendChild(btnExcluir);
 
     lista.appendChild(li);
 }
 
+const montaCabecalho = () => {
+    lista.textContent = '';
+
+    let li = document.createElement('li');
+    li.classList.add('listaheader');
+
+    let spanIMC = document.createElement('span');
+    spanIMC.innerText = 'I.M.C.';
+    li.appendChild(spanIMC);
+
+    let spanData = document.createElement('span');
+    spanData.innerText = 'Data';
+    li.appendChild(spanData);
+
+    let colunaExcluir = document.createElement('span');
+    li.appendChild(colunaExcluir);
+
+    lista.appendChild(li);
+}
+
 const carregaLista = () => {
+    montaCabecalho();
     let listaImc = [];
 
-    let chaves = Object.keys(localStorage);
+    let chaves = Object.keys(localStorage).sort();
 
     if (chaves.length > 2) {
 
@@ -133,8 +154,13 @@ const carregaLista = () => {
 
 onload = () => {
     btn_novoimc.onclick = () => { mostrarPagina(2); }
-    btn_cancelar.onclick = () => { mostrarPagina(1); }
+    btn_cancelar.onclick = () => {
+        limparCampos();
+        mostrarPagina(1);
+    }
     btn_voltar.onclick = () => { mostrarPagina(1); }
     btn_salvar.onclick = () => { salvar(); }
     btn_voltarmodal.onclick = () => { fecharmodal(); }
+
+    carregaLista();
 }
