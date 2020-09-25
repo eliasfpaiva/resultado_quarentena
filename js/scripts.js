@@ -16,6 +16,7 @@ class IMC {
         this.peso = new Number(peso);
         this.altura = new Number(altura);
         this.data = data.getDate() + '/' + ((data.getMonth() + 1).toString().padStart(2, '0')) + '/' + data.getFullYear();
+        this.sexo = sexo;
         this.imc = (this.peso / (this.altura * this.altura)).toFixed(2);
     }
 }
@@ -99,10 +100,12 @@ const montaListaItem = (imc) => {
 
     let spanIMC = document.createElement('span');
     spanIMC.innerText = imc.imc;
+    spanIMC.addEventListener('click', exibirItemIMC);
     li.appendChild(spanIMC);
 
     let spanData = document.createElement('span');
     spanData.innerText = imc.data;
+    spanData.addEventListener('click', exibirItemIMC);
     li.appendChild(spanData);
 
     let btnExcluir = document.createElement('button');
@@ -157,11 +160,28 @@ const carregaLista = () => {
     }
 }
 
+const exibirItemIMC = (event) => {
+    let itemEscolhido = event.target.parentElement;
+    let imcEscolhido = localStorage.getItem(itemEscolhido.getAttribute('data-id'));
+    let imcCarregado = JSON.parse(imcEscolhido);
+
+    valorpeso.value = imcCarregado.peso;
+    valoraltura.value = imcCarregado.altura;
+    valordata.textContent = imcCarregado.data;
+    valorimc.textContent = imcCarregado.imc;
+
+    document.querySelector('#valorsexo' + imcCarregado.sexo).checked = true;
+
+    mostrarPagina(3);
+}
+
 onload = () => {
     btn_novoimc.onclick = () => {
         mostrarPagina(2);
-        document.querySelector('#sexo' + localStorage.getItem('sexo')).checked = true;
-        altura.value = localStorage.getItem('altura');
+        if (localStorage.length > 0) {
+            document.querySelector('#sexo' + localStorage.getItem('sexo')).checked = true;
+            altura.value = localStorage.getItem('altura');
+        }
     }
     btn_cancelar.onclick = () => {
         limparCampos();
