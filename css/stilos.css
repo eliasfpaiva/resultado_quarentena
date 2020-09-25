@@ -34,6 +34,7 @@ button {
     font-size: 1.2rem;
     border-radius: 10px;
     margin: 0.2rem;
+    height: 2.5rem;
 }
 
 .pagina {
@@ -81,6 +82,7 @@ button {
 
 .listaitem {
     margin-bottom: 0.2rem;
+    height: 2.5rem;
 }
 
 .barrainferior {
