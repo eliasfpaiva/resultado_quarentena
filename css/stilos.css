@@ -10,7 +10,7 @@ body {
 }
 
 header {
-    height: 3rem;
+    height: 4rem;
     color: #fff;
     background: #1d3a4e;
     border: thin solid #0c293d;
@@ -19,7 +19,7 @@ header {
     left: 0;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 1;
@@ -29,6 +29,16 @@ h1,
 h2 {
     font-size: 1.3rem;
     text-align: center;
+}
+
+header span,
+header a {
+    font-size: 0.5rem;
+    padding-top: 0.2rem;
+}
+
+header a {
+    color: #fff;
 }
 
 button {
@@ -139,6 +149,10 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.formulario .botoes {
+    margin-top: 3rem;
 }
 
 .campo {

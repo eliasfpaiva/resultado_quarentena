@@ -37,18 +37,21 @@
 <body>
     <header>
         <h1>RESULTADO DA QUARENTENA</h1>
+        <span>Classificação de pesos obtida no relatório da OMS</span>
+        <span>Obesiy: Preventing and managing the global epidemic, para acessar <a href="http://apps.who.int/iris/bitstream/10665/42330/1/WHO_TRS_894.pdf?ua=1&ua=1" alt="Link para relatório da OMS">clique aqui</a></span>
+        <span>OBS.: ESTA APLICAÇÃO NÃO SUBSTITUI UM DIAGNÓSTICO MÉDICO</span>
     </header>
     <div id="pagina1" class="pagina ">
         <div id="listavazia" class="listavazia ">
-            <img id="balanca" src="./recursos/imagens/balança_bonita.png" alt="Balança envolta em ramos">
+            <img id="balanca" src="./recursos/imagens/balança_bonita.png" alt="Balança envolta em ramos, indica lista vazia">
             <label for="balanca">Nenhum I.M.C. cadastrado!</label>
             <label for="balanca">Vamos iniciar o controle?</label>
         </div>
         <ul id="lista" class="lista hidden">
             <li class="listaheader">
-                <span>I.M.C.</span>
-                <span>Data</span>
-                <div></div>
+                <span alt="Título da coluna de valores de I.M.C.">I.M.C.</span>
+                <span alt="Título da coluna de datas de registro de I.M.C.">Data</span>
+                <span></span>
             </li>
         </ul>
         <div id="barrainferior" class="barrainferior">
@@ -84,7 +87,7 @@
                 <label for="idade">Idade:</label>
                 <input type="number" name="idade" id="idade" placeholder="anos" autocomplete="off" step="1">
             </div> -->
-            <div class="campo">
+            <!-- <div class="campo">
                 <label>Sexo:</label>
                 <div class="radio">
                     <div class="opcaoradio">
@@ -96,7 +99,7 @@
                         <label for="sexoXY">XY</label>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="botoes">
                 <button id="btn_cancelar" class="perigo">Cancelar</button>
                 <button id="btn_salvar" class="sucesso">Salvar</button>
@@ -117,7 +120,7 @@
                 <label for="valoridade">Idade:</label>
                 <input type="number" name="valoridade" id="valoridade" disabled>
             </div> -->
-            <div class="campo">
+            <!-- <div class="campo">
                 <label>Sexo:</label>
                 <div class="radio">
                     <div class="opcaoradio">
@@ -129,7 +132,7 @@
                         <label for="valorsexoXY">XY</label>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="campo dados">
                 <label for="valordata">Data:</label>
                 <span name="valordata" id="valordata"></span>

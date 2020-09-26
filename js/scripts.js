@@ -9,14 +9,14 @@ class IMC {
 
     constructor(peso, altura, sexo) {
         let data = new Date();
-        localStorage.setItem('sexo', sexo);
+        // localStorage.setItem('sexo', sexo);
         localStorage.setItem('altura', altura);
 
         this.id = data.getTime();
         this.peso = new Number(peso);
         this.altura = new Number(altura);
         this.data = data.getDate() + '/' + ((data.getMonth() + 1).toString().padStart(2, '0')) + '/' + data.getFullYear();
-        this.sexo = sexo;
+        // this.sexo = sexo;
         this.imc = (this.peso / (this.altura * this.altura)).toFixed(2);
     }
 }
@@ -49,8 +49,8 @@ const validarFormulario = () => {
     if (altura.value === "")
         msg += "O campo 'Altura' deve ser preenchido!\n";
 
-    if (document.querySelector('input[name="sexo"]:checked') === null)
-        msg += "É necessário selecionar o sexo!\n";
+    // if (document.querySelector('input[name="sexo"]:checked') === null)
+    //     msg += "É necessário selecionar o sexo!\n";
 
     mostrarModal(new ConteudoModal('Campos em branco', msg));
 
@@ -61,18 +61,18 @@ const limparCampos = () => {
     peso.value = '';
     altura.value = '';
 
-    if (localStorage.getItem('sexo')) {
-        document.querySelector('input[name="sexo"]:checked').checked = false;
-    }
+    // if (localStorage.getItem('sexo')) {
+    //     document.querySelector('input[name="sexo"]:checked').checked = false;
+    // }
 }
 
 const salvar = () => {
     if (validarFormulario()) {
         let _peso = peso.value;
         let _altura = altura.value;
-        let _sexo = document.querySelector('input[name="sexo"]:checked').value;
+        // let _sexo = document.querySelector('input[name="sexo"]:checked').value;
 
-        let _imc = new IMC(_peso, _altura, _sexo);
+        let _imc = new IMC(_peso, _altura) //, _sexo);
 
         localStorage.setItem(_imc.id, JSON.stringify(_imc));
 
@@ -87,7 +87,7 @@ const excluirIMC = (event) => {
     let itemExcluido = event.target.parentElement;
     localStorage.removeItem(itemExcluido.getAttribute('data-id'));
 
-    if (localStorage.length === 2) {
+    if (localStorage.length === 1) {
         localStorage.clear();
     }
 
@@ -144,13 +144,13 @@ const carregaLista = () => {
 
     let chaves = Object.keys(localStorage).sort();
 
-    if (chaves.length > 2) {
+    if (chaves.length > 1) {
 
         lista.classList.remove('hidden');
         listavazia.classList.add('hidden');
 
         for (i = 0; i < chaves.length; i++) {
-            if (chaves[i] !== "altura" && chaves[i] !== "sexo")
+            if (chaves[i] !== "altura") // && chaves[i] !== "sexo")
                 listaImc.push(JSON.parse(localStorage.getItem(chaves[i])));
         }
 
@@ -171,7 +171,7 @@ const exibirItemIMC = (event) => {
     valordata.textContent = imcCarregado.data;
     valorimc.textContent = imcCarregado.imc;
 
-    document.querySelector('#valorsexo' + imcCarregado.sexo).checked = true;
+    // document.querySelector('#valorsexo' + imcCarregado.sexo).checked = true;
 
     mostrarPagina(3);
 }
@@ -191,7 +191,7 @@ onload = () => {
     btn_novoimc.onclick = () => {
         mostrarPagina(2);
         if (localStorage.getItem('sexo')) {
-            document.querySelector('#sexo' + localStorage.getItem('sexo')).checked = true;
+            // document.querySelector('#sexo' + localStorage.getItem('sexo')).checked = true;
             altura.value = localStorage.getItem('altura');
         }
     }
