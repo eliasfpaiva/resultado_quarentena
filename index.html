@@ -37,7 +37,7 @@
 <body>
     <header>
         <h1>RESULTADO DA QUARENTENA</h1>
-        <span>Classificação de pesos obtida no relatório da OMS</span>
+        <span>Classificação de I.M.C. obtida no relatório da OMS</span>
         <span>Obesiy: Preventing and managing the global epidemic, para acessar <a href="http://apps.who.int/iris/bitstream/10665/42330/1/WHO_TRS_894.pdf?ua=1&ua=1" alt="Link para relatório da OMS">clique aqui</a></span>
         <span>OBS.: ESTA APLICAÇÃO NÃO SUBSTITUI UM DIAGNÓSTICO MÉDICO</span>
     </header>
@@ -59,16 +59,16 @@
                 <button id="btn_novoimc" class="sucesso">Novo I.M.C.</button>
             </div>
             <div class="resultado">
-                <span>Média</span>
-                <progress max="42" value="22"></progress>
+                <span id="media">Média</span>
+                <progress id="grafico" max="100"></progress>
                 <div id="graduacao" class="graduacao">
-                    <span>M.A.P.</span>
-                    <span>AB.P.</span>
-                    <span>P.N.</span>
-                    <span>AC.P.</span>
-                    <span>O.1</span>
-                    <span>O.2</span>
-                    <span>O.3</span>
+                    <div><span>M.A.P.</span></div>
+                    <div><span>AB.P.</span></div>
+                    <div><span>P.N.</span></div>
+                    <div><span>AC.P.</span></div>
+                    <div><span>O.1</span></div>
+                    <div><span>O.2</span></div>
+                    <div><span>O.3</span></div>
                 </div>
             </div>
         </div>

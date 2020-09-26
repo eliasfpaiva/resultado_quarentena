@@ -138,9 +138,24 @@ button {
 .graduacao {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
+}
+
+.graduacao>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 14.3%;
+    height: 1.5rem;
+}
+
+.graduacao>div>span {
+    text-align: center;
+    width: 100%;
+    font-size: 0.9rem;
 }
 
 .formulario {

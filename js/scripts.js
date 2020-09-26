@@ -10,14 +10,14 @@ class IMC {
     constructor(peso, altura, sexo) {
         let data = new Date();
         // localStorage.setItem('sexo', sexo);
-        localStorage.setItem('altura', altura);
+        localStorage.setItem('altura', new Number(altura));
 
         this.id = data.getTime();
         this.peso = new Number(peso);
         this.altura = new Number(altura);
         this.data = data.getDate() + '/' + ((data.getMonth() + 1).toString().padStart(2, '0')) + '/' + data.getFullYear();
         // this.sexo = sexo;
-        this.imc = (this.peso / (this.altura * this.altura)).toFixed(2);
+        this.imc = new Number((new Number(this.peso) / (new Number(this.altura) * new Number(this.altura))).toFixed(2));
     }
 }
 
@@ -140,24 +140,20 @@ const montaCabecalho = () => {
 
 const carregaLista = () => {
     montaCabecalho();
-    let listaImc = [];
+    let listaImc = listarIMCs();
 
-    let chaves = Object.keys(localStorage).sort();
-
-    if (chaves.length > 1) {
+    if (listaImc.length > 0) {
 
         lista.classList.remove('hidden');
         listavazia.classList.add('hidden');
 
-        for (i = 0; i < chaves.length; i++) {
-            if (chaves[i] !== "altura") // && chaves[i] !== "sexo")
-                listaImc.push(JSON.parse(localStorage.getItem(chaves[i])));
-        }
-
         listaImc.forEach((imc) => { montaListaItem(imc); });
+
+        media.textContent = ('Média: ' + calcularMedia());
     } else {
         lista.classList.add('hidden');
         listavazia.classList.remove('hidden');
+        media.textContent = 'Média';
     }
 }
 
@@ -176,6 +172,27 @@ const exibirItemIMC = (event) => {
     mostrarPagina(3);
 }
 
+const listarIMCs = () => {
+    let listaImc = [];
+
+    let chaves = Object.keys(localStorage).sort();
+
+    for (i = 0; i < chaves.length; i++) {
+        if (chaves[i] !== "altura")
+            listaImc.push(JSON.parse(localStorage.getItem(chaves[i])));
+    }
+    return listaImc;
+}
+
+const calcularMedia = () => {
+    let soma = 0;
+
+    let listaImc = listarIMCs();
+    listaImc.forEach((imc) => { soma += imc.imc; });
+
+    return (new Number(soma / listaImc.length).toFixed(2));
+}
+
 const inserirChamadasModalGraduacao = () => {
     let escalas = graduacao.children;
     escalas[0].addEventListener('click', () => { mostrarModal(new ConteudoModal('Muito abaixo do peso', 'Abaixo de 17')) });
@@ -190,10 +207,7 @@ const inserirChamadasModalGraduacao = () => {
 onload = () => {
     btn_novoimc.onclick = () => {
         mostrarPagina(2);
-        if (localStorage.getItem('sexo')) {
-            // document.querySelector('#sexo' + localStorage.getItem('sexo')).checked = true;
-            altura.value = localStorage.getItem('altura');
-        }
+        altura.value = localStorage.getItem('altura');
     }
     btn_cancelar.onclick = () => {
         limparCampos();
