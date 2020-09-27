@@ -1,2 +1,2 @@
 language = "html"
-run = "echo Resultado da quarentena"
+run = ""
