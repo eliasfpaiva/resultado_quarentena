@@ -100,7 +100,7 @@ const montaListaItem = (imc) => {
     li.classList.add('listaitem');
 
     let spanIMC = document.createElement('span');
-    spanIMC.innerText = imc.imc;
+    spanIMC.innerText = imc.imc.toFixed(2);
     spanIMC.addEventListener('click', exibirItemIMC);
     li.appendChild(spanIMC);
 
@@ -149,12 +149,14 @@ const carregaLista = () => {
 
         listaImc.forEach((imc) => { montaListaItem(imc); });
 
-        media.textContent = ('Média: ' + calcularMedia());
+        media.textContent = ('Média: ' + calcularMedia().toFixed(2));
     } else {
         lista.classList.add('hidden');
         listavazia.classList.remove('hidden');
         media.textContent = 'Média';
     }
+
+    calcularValorGrafico();
 }
 
 const exibirItemIMC = (event) => {
@@ -162,10 +164,10 @@ const exibirItemIMC = (event) => {
     let imcEscolhido = localStorage.getItem(itemEscolhido.getAttribute('data-id'));
     let imcCarregado = JSON.parse(imcEscolhido);
 
-    valorpeso.value = imcCarregado.peso;
-    valoraltura.value = imcCarregado.altura;
+    valorpeso.value = imcCarregado.peso.toFixed(2);
+    valoraltura.value = imcCarregado.altura.toFixed(2);
     valordata.textContent = imcCarregado.data;
-    valorimc.textContent = imcCarregado.imc;
+    valorimc.textContent = imcCarregado.imc.toFixed(2);
 
     // document.querySelector('#valorsexo' + imcCarregado.sexo).checked = true;
 
@@ -188,9 +190,12 @@ const calcularMedia = () => {
     let soma = 0;
 
     let listaImc = listarIMCs();
+
+    if (listaImc.length == 0) return 0;
+
     listaImc.forEach((imc) => { soma += imc.imc; });
 
-    return (new Number(soma / listaImc.length).toFixed(2));
+    return (new Number(soma / listaImc.length));
 }
 
 const inserirChamadasModalGraduacao = () => {
@@ -201,7 +206,71 @@ const inserirChamadasModalGraduacao = () => {
     escalas[3].addEventListener('click', () => { mostrarModal(new ConteudoModal('Acima do peso', 'Entre 25 e 29,99')) });
     escalas[4].addEventListener('click', () => { mostrarModal(new ConteudoModal('Obesidade I', 'Entre 30 e 34,99')) });
     escalas[5].addEventListener('click', () => { mostrarModal(new ConteudoModal('Obesidade II (Severa)', 'Entre 35 e 39,99')) });
-    escalas[6].addEventListener('click', () => { mostrarModal(new ConteudoModal('Obesidade III (Mórbida)', 'Acima de 40')) });
+    escalas[6].addEventListener('click', () => { mostrarModal(new ConteudoModal('Obesidade III (Mórbida)', '40 ou mais')) });
+}
+
+const calcularValorGrafico = () => {
+    document.querySelectorAll('.graduacao> div').forEach((div) => {
+        div.style.background = 'none';
+        div.style.color = 'white'
+    });
+
+    let media = calcularMedia();
+
+    if (media === 0)
+        grafico.removeAttribute('value');
+    else {
+        let cor = 0;
+        let numeroFaixa = 0;
+
+        if (media >= 40) {
+            grafico.value = 100;
+            cor = 'red';
+            numeroFaixa = 6;
+        } else {
+            let baseFaixa = 0;
+            let larguraFaixa = 0;
+            let larguraColuna = 100 / 7;
+
+            if (media >= 35) {
+                baseFaixa = 35;
+                larguraFaixa = 39.99 - baseFaixa;
+                numeroFaixa = 5;
+                cor = 'orange';
+            } else if (media >= 30) {
+                baseFaixa = 30;
+                larguraFaixa = 34.99 - baseFaixa;
+                numeroFaixa = 4;
+                cor = 'orange';
+            } else if (media >= 25) {
+                baseFaixa = 25;
+                larguraFaixa = 29.99 - baseFaixa;
+                numeroFaixa = 3;
+                cor = 'yellow';
+            } else if (media >= 18.50) {
+                baseFaixa = 18.50;
+                larguraFaixa = 24.99 - baseFaixa;
+                numeroFaixa = 2;
+                cor = 'lightblue';
+            } else if (media >= 17) {
+                baseFaixa = 17;
+                larguraFaixa = 18.49 - baseFaixa;
+                numeroFaixa = 1;
+                cor = 'lightgreen';
+            } else {
+                larguraFaixa = 17;
+                numeroFaixa = 0;
+                cor = 'limegreen';
+            }
+
+            let valorIncremento = media - baseFaixa;
+            let preenchimentoIncremento = ((valorIncremento / larguraFaixa) * larguraColuna);
+            grafico.value = ((numeroFaixa * larguraColuna) + preenchimentoIncremento);
+        }
+
+        document.querySelector('.graduacao').children[numeroFaixa].style.background = '#4f6d7f';
+        document.querySelector('.graduacao').children[numeroFaixa].style.color = cor;
+    }
 }
 
 onload = () => {
