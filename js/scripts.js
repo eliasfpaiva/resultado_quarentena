@@ -302,6 +302,6 @@ onload = () => {
     carregaLista();
 }
 
-// if (navigator.serviceWorker) {
-//     navigator.serviceWorker.register('./serviceworker.js');
-// }
+if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('./serviceworker.js');
+}
