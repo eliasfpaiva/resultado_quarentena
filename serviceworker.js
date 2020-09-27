@@ -62,8 +62,10 @@ self.addEventListener('fetch', (event) => {
             if (recurso)
                 return recurso;
             else {
-                cache.put(event.request, recurso.clone());
-                return fetch(event.request);
+                fetch(event.request).then((recursoWeb) => {
+                    cache.put(event.request, recursoWeb.clone());
+                    return recursoWeb;
+                }).catch(() => { return 'Recurso indisponível.' });
             }
         });
     });
