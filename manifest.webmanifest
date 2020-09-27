@@ -4,7 +4,7 @@
     "start_url": "./html/index.html",
     "display": "standalone",
     "background_color": "#fff",
-    "theme_color": "#f66",
+    "theme_color": "#1d3a4e",
     "scope": ".",
     "lang": "pt-BR",
     "description": "Aplicação para acompanhamento de IMC",
