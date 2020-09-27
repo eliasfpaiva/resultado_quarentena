@@ -49,6 +49,18 @@ const validarFormulario = () => {
     if (altura.value === "")
         msg += "O campo 'Altura' deve ser preenchido!\n";
 
+    if (isNaN(new Number(peso.value))) {
+        msg += "O campo 'Peso' deve ser numérico!\n";
+    } else if (new Number(peso.value) < 0) {
+        msg += "O campo 'Peso' deve ser positivo!\n";
+    }
+
+    if (isNaN(new Number(altura.value))) {
+        msg += "O campo 'Altura' deve ser numérico!\n";
+    } else if (new Number(altura.value) < 0) {
+        msg += "O campo 'Altura' deve ser positivo!\n";
+    }
+
     // if (document.querySelector('input[name="sexo"]:checked') === null)
     //     msg += "É necessário selecionar o sexo!\n";
 
