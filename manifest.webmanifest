@@ -3,7 +3,12 @@
     "short_name": "RQ",
     "start_url": "./html/index.html",
     "display": "standalone",
-    "orientation": "portrait",
+    "background_color": "#fff",
+    "theme_color": "#f66",
+    "scope": ".",
+    "lang": "pt-BR",
+    "description": "Aplicação para acompanhamento de IMC",
+    "dir": "ltr",
     "icons": [{
             "src": "./recursos/icones/android-icon-36x36.png",
             "sizes": "36x36",
