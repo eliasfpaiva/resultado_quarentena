@@ -6,7 +6,7 @@ self.addEventListener('install', () => {
             '/',
             '/index.html',
             '/manifest.webmanifest',
-            '/recursos/imagens/balança_bonita.png',
+            '/recursos/imagens/balanca_bonita.png',
             '/recursos/icones/android-icon-36x36.png',
             '/recursos/icones/android-icon-48x48.png',
             '/recursos/icones/android-icon-72x72.png',
