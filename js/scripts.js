@@ -175,7 +175,8 @@ const carregaLista = () => {
 
 const exibirItemIMC = (event) => {
     let itemEscolhido = event.target.parentElement;
-    let imcEscolhido = localStorage.getItem(itemEscolhido.getAttribute('data-id'));
+    let data_id = itemEscolhido.getAttribute('data-id');
+    let imcEscolhido = localStorage.getItem(data_id);
     let imcCarregado = JSON.parse(imcEscolhido);
 
     valorpeso.value = imcCarregado.peso.toFixed(2);
@@ -184,6 +185,7 @@ const exibirItemIMC = (event) => {
     valorimc.textContent = imcCarregado.imc.toFixed(2);
 
     // document.querySelector('#valorsexo' + imcCarregado.sexo).checked = true;
+    btn_excluir.parentElement.setAttribute('data-id', data_id);
 
     mostrarPagina(3);
 }
@@ -299,6 +301,10 @@ onload = () => {
     btn_voltar.onclick = () => { mostrarPagina(1); }
     btn_salvar.onclick = () => { salvar(); }
     btn_voltarmodal.onclick = () => { fecharmodal(); }
+    btn_excluir.addEventListener('click', (event) => {
+        excluirIMC(event);
+        mostrarPagina(1);
+    });
 
     inserirChamadasModalGraduacao();
     carregaLista();

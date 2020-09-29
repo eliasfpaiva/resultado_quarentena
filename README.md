@@ -8,9 +8,9 @@ O objetivo desta aplicação é permitir o cadastro de medições de caracterís
 
 ### Tela principal
 
-Esta tela exibe uma barra de cabeçalho com informações sobre os dados fornecidos e a classificação do I.M.C.. Também fornece um link para a página da OMS onde se pode obter o relário que conte uma tabela de referêcia para a classificação do I.M.C..
+Esta tela exibe uma barra de cabeçalho com informações sobre os dados fornecidos e a classificação do I.M.C.. Também fornece um link para a página da OMS onde se pode obter o relário que conte uma tabela de referêcia para a classificação do I.M.C.. Todas a telas contam com esta barra de cabeçalho de igual modo.
 
-Em seguida, caso a lista de I.M.C. esteja vazia, uma imagem será exibida com mensagem informando não haver registros e convidando a iniciar o processo. Caso a lista contenha registros, ela será exibida com o valor do I.M.C. registrado, a data do registro e um botão para exclusão do registro. Clicando no valor do I.M.C. ou na data, será exibida a tela de visualização do registro lançado.
+Em seguida, caso a lista de I.M.C. esteja vazia, uma imagem será exibida com mensagem informando não haver registros e convidando a iniciar o processo. Caso a lista contenha registros, ela será exibida com o valor do I.M.C. registrado, a data do registro e um botão para exclusão do registro. Clicando no valor do I.M.C. ou na data, será exibida a tela de visualização do registro lançado. Se todos os registros forem excluídos a imagem de lista vazia volta a ser exibida.
 
 Ao pé da página há:
  - O botão para "chamar" a tela que permite um novo cadastro.
@@ -31,19 +31,21 @@ Nesta tela encontramos os campos para preenchimento, são apenas 2 campos, sendo
 
 ### Tela de visualização
 
-Nesta tela, é possível apenas visualizar os dados de um registro contando com os valores de peso e altura informados no dados registro e também com a data e o I.M.C. do registro específico.
+Nesta tela, é possível apenas visualizar os dados de um registro contando com os valores de peso e altura informados no dados registro e também com a data e o I.M.C. do registro específico. Todos os dados apenas para leitura, não são permitidas edições neste caso.
+
+Também são exibidos dois botões sendo um para exclusão do registro e retorno à listagem e outro apenas para retorno à lista de registros.
 
 ## 2. Dados do usuário
 
-Nesta aplicação, os dados do usuário que são armazenados são ...
+Nesta aplicação, os dados do usuário que são armazenados são peso e altura informaodos, data dos registros, e I.M.C. calculado ao longo dos registros. Todos os dados ficam armazendados no dispositivo da pessoa usuária.
 
 ## 3. Checklist de implementação
 
 - A aplicação é original e não uma cópia da aplicação de um colega ou de uma aplicação já existente? **Sim**
 - A aplicação tem pelo menos duas interfaces (telas ou páginas) independentes? **Sim**
-- A aplicação armazena e usa de forma relevante dados complexos do usuário?
-- A aplicação possui um manifesto para instalação no dispositivo do usuário?
-- A aplicação possui um _service worker_ que permite o funcionamento off-line?
+- A aplicação armazena e usa de forma relevante dados complexos do usuário? **Sim**
+- A aplicação possui um manifesto para instalação no dispositivo do usuário? **Sim**
+- A aplicação possui um _service worker_ que permite o funcionamento off-line? **Sim**
 - O código da minha aplicação possui comentários explicando cada operação?
-- A aplicação está funcionando corretamente?
-- A aplicação está completa?
+- A aplicação está funcionando corretamente? **Sim**
+- A aplicação está completa? 

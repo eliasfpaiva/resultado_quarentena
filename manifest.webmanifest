@@ -1,7 +1,7 @@
 {
     "name": "Resultado da quarentena",
     "short_name": "RQ",
-    "start_url": "./index.html",
+    "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#fff",
     "theme_color": "#1d3a4e",
