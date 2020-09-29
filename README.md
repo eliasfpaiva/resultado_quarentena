@@ -48,6 +48,4 @@ Nesta aplicação, os dados do usuário que são armazenados são peso e altura 
 - A aplicação possui um _service worker_ que permite o funcionamento off-line? **Sim**
 - O código da minha aplicação possui comentários explicando cada operação? **Sim**
 - A aplicação está funcionando corretamente? **Sim**
-- A aplicação está completa? **Não**
-
-Pelo menos até o momento a aplicação não está completa, pois não funciona off-line corretamente.
+- A aplicação está completa? **Sim**
