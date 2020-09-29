@@ -260,6 +260,7 @@ button {
     color: #fff;
     background: #1d3a4e;
     border: 0.3rem solid #3e5c6e;
+    text-align: center;
 }
 
 .modal hr {

@@ -1,5 +1,7 @@
-var nomeCache = 'cache-RG-v0.9';
+//  Define o nome e versão do cache atual
+var nomeCache = 'cache-RG-v1.0';
 
+// Armazenda todos os arquivos da aplicação no cache atual
 self.addEventListener('install', () => {
     caches.open(nomeCache).then((cache) => {
         cache.addAll([
@@ -41,6 +43,8 @@ self.addEventListener('install', () => {
     })
 });
 
+// Recupera todos os nomes de cache e apaga aqueles
+// que forem diferentes do cache atual
 self.addEventListener('activate', (e) => {
     e.waitUntil(
         caches.keys().then((listaChaves) => {
@@ -56,6 +60,9 @@ self.addEventListener('activate', (e) => {
     );
 });
 
+// Tenta carregar qualquer recurso a partir do cache
+// caso não encontre busca o recurso na web, o armazenda no cache
+// e retorna o recurso baixado
 self.addEventListener('fetch', (event) => {
     let resposta = caches.open(nomeCache).then((cache) => {
         return cache.match(event.request).then((recurso) => {

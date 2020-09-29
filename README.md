@@ -46,6 +46,8 @@ Nesta aplicação, os dados do usuário que são armazenados são peso e altura 
 - A aplicação armazena e usa de forma relevante dados complexos do usuário? **Sim**
 - A aplicação possui um manifesto para instalação no dispositivo do usuário? **Sim**
 - A aplicação possui um _service worker_ que permite o funcionamento off-line? **Sim**
-- O código da minha aplicação possui comentários explicando cada operação?
+- O código da minha aplicação possui comentários explicando cada operação? **Sim**
 - A aplicação está funcionando corretamente? **Sim**
-- A aplicação está completa? 
+- A aplicação está completa? **Não**
+
+Pelo menos até o momento a aplicação não está completa, pois não funciona off-line corretamente.

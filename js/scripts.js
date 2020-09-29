@@ -1,3 +1,4 @@
+// Classe para padronização do conteúdo de modal
 class ConteudoModal {
     constructor(titulo, texto) {
         this.titulo = titulo;
@@ -5,41 +6,50 @@ class ConteudoModal {
     }
 }
 
+// Classe para padronização de dados I.M.C.
 class IMC {
 
     constructor(peso, altura, sexo) {
         let data = new Date();
-        // localStorage.setItem('sexo', sexo);
+        // Armazenda a altura par facilitar novos lançamentos.
         localStorage.setItem('altura', new Number(altura));
 
+        // Gera um ID a partir da data no momento do registro
         this.id = data.getTime();
         this.peso = new Number(peso);
         this.altura = new Number(altura);
+        // Monta uma data no formato mais comum para exibição
         this.data = data.getDate() + '/' + ((data.getMonth() + 1).toString().padStart(2, '0')) + '/' + data.getFullYear();
-        // this.sexo = sexo;
+        // Calcula e armazena o I.M.C.
         this.imc = new Number((new Number(this.peso) / (new Number(this.altura) * new Number(this.altura))).toFixed(2));
     }
 }
 
+// Deixa visível a página nescessária à interação que a pessoa deseja realizar
 const mostrarPagina = (numeroPagina) => {
+    // Esconde todas as páginas
     document.querySelectorAll('.pagina').forEach(
         (pagina) => { pagina.classList.add('hidden'); }
     );
+    // Deixa visível a página desejada.
     document.getElementById('pagina' + numeroPagina).classList.remove('hidden');
 }
 
+// Bloqueia toda a tela para a exibição do modal
 const mostrarModal = (conteudo) => {
     tituloModal.innerText = conteudo.titulo;
     textoModal.innerText = conteudo.texto;
     modal.parentElement.classList.remove('hidden');
 }
 
+// Remove o modal exibido da frente dos outros elementos de tela
 const fecharmodal = () => {
     tituloModal.innerText = '';
     textoModal.innerText = '';
     modal.parentElement.classList.add('hidden');
 }
 
+// Realiza verificações pra validar os dados informados no formulário
 const validarFormulario = () => {
     let msg = "";
 
@@ -63,30 +73,25 @@ const validarFormulario = () => {
         msg += "A altura deve ser dada em metros.\nExemplo: 1,75.\nA Altura deve ser, no máximo, 4m.";
     }
 
-    // if (document.querySelector('input[name="sexo"]:checked') === null)
-    //     msg += "É necessário selecionar o sexo!\n";
-
     mostrarModal(new ConteudoModal('Preenchimento inválido', msg));
 
     return msg === "";
 }
 
+// Limpa os campos do formulário
 const limparCampos = () => {
     peso.value = '';
     altura.value = '';
-
-    // if (localStorage.getItem('sexo')) {
-    //     document.querySelector('input[name="sexo"]:checked').checked = false;
-    // }
 }
 
+// Verifica a validação do formulário, se tudo estiver corretamente preenchido
+// salva o conteúdo no localStorage e retorna à tela de listagem
 const salvar = () => {
     if (validarFormulario()) {
         let _peso = peso.value;
         let _altura = altura.value;
-        // let _sexo = document.querySelector('input[name="sexo"]:checked').value;
 
-        let _imc = new IMC(_peso, _altura) //, _sexo);
+        let _imc = new IMC(_peso, _altura);
 
         localStorage.setItem(_imc.id, JSON.stringify(_imc));
 
@@ -97,6 +102,7 @@ const salvar = () => {
     }
 }
 
+// Remove um registro específico do localStorage
 const excluirIMC = (event) => {
     let itemExcluido = event.target.parentElement;
     localStorage.removeItem(itemExcluido.getAttribute('data-id'));
@@ -108,6 +114,9 @@ const excluirIMC = (event) => {
     carregaLista();
 }
 
+// Monta um ítem da lista de I.M.C. na tela
+// carregandos os dados fornecidos em cada elemento inserido
+// criando cada elemento de tela conforme necessário
 const montaListaItem = (imc) => {
     let li = document.createElement('li');
     li.setAttribute('data-id', imc.id);
@@ -132,6 +141,8 @@ const montaListaItem = (imc) => {
     lista.appendChild(li);
 }
 
+// Monta o cabeçalho da lista de I.M.C.
+// criando cada elemento de tela conforme necessário
 const montaCabecalho = () => {
     lista.textContent = '';
 
@@ -152,14 +163,19 @@ const montaCabecalho = () => {
     lista.appendChild(li);
 }
 
+// Percorre a lista de I.M.C. registrados
+// incluindo cada item da lista com seus respectivos dados
+// caso a lista esteja vazia ocunta o elemento de lista da página
+// e exibe a imagem com mensagem de lista vazia
+// atualiza o valor do gráfico conforme dados da lista de I.M.C.
 const carregaLista = () => {
-    montaCabecalho();
     let listaImc = listarIMCs();
 
     if (listaImc.length > 0) {
 
         lista.classList.remove('hidden');
         listavazia.classList.add('hidden');
+        montaCabecalho();
 
         listaImc.forEach((imc) => { montaListaItem(imc); });
 
@@ -173,6 +189,8 @@ const carregaLista = () => {
     calcularValorGrafico();
 }
 
+// Carrega os dados de um registro de I.M.C. selecionado
+// e exibe a página de visualização com estas informações
 const exibirItemIMC = (event) => {
     let itemEscolhido = event.target.parentElement;
     let data_id = itemEscolhido.getAttribute('data-id');
@@ -184,12 +202,14 @@ const exibirItemIMC = (event) => {
     valordata.textContent = imcCarregado.data;
     valorimc.textContent = imcCarregado.imc.toFixed(2);
 
-    // document.querySelector('#valorsexo' + imcCarregado.sexo).checked = true;
     btn_excluir.parentElement.setAttribute('data-id', data_id);
 
     mostrarPagina(3);
 }
 
+// Percorre os registros presentes no localStorage
+// monta uma lista de objetos IMC com do dados de I.M.C.
+// encontrados e retorna a lista
 const listarIMCs = () => {
     let listaImc = [];
 
@@ -202,6 +222,8 @@ const listarIMCs = () => {
     return listaImc;
 }
 
+// Percorre a lista de I.M.C. e calcula e retorn
+// a média do valor dos registros encontrados
 const calcularMedia = () => {
     let soma = 0;
 
@@ -214,6 +236,8 @@ const calcularMedia = () => {
     return (new Number(soma / listaImc.length));
 }
 
+// Insere função que exibe modal informativo para cada
+// um dos itens da escala de classificação de I.M.C.
 const inserirChamadasModalGraduacao = () => {
     let escalas = graduacao.children;
     escalas[0].addEventListener('click', () => { mostrarModal(new ConteudoModal('Muito abaixo do peso', 'Abaixo de 17')) });
@@ -225,6 +249,10 @@ const inserirChamadasModalGraduacao = () => {
     escalas[6].addEventListener('click', () => { mostrarModal(new ConteudoModal('Obesidade III (Mórbida)', '40 ou mais')) });
 }
 
+// Calcula o valor que o gráfico deve indicar
+// apesar das faixas possuírem laguras diferentes,
+// o gráfico trata todas com a mesma largura para visualização
+// respeitando os valores correspondentes.
 const calcularValorGrafico = () => {
     document.querySelectorAll('.graduacao> div').forEach((div) => {
         div.style.background = 'none';
@@ -289,6 +317,8 @@ const calcularValorGrafico = () => {
     }
 }
 
+// Insere funções principais, ao carregar a aplicação
+// e executa chamadas para inicialização do sistema.
 onload = () => {
     btn_novoimc.onclick = () => {
         mostrarPagina(2);
@@ -310,6 +340,7 @@ onload = () => {
     carregaLista();
 }
 
+// Registro do service worker
 if (navigator.serviceWorker) {
     navigator.serviceWorker.register('./serviceworker.js');
 }
