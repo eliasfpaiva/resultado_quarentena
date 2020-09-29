@@ -1,4 +1,4 @@
-var nomeCache = 'cache-RG-v0.2';
+var nomeCache = 'cache-RG-v0.6';
 
 self.addEventListener('install', () => {
     caches.open(nomeCache).then((cache) => {
