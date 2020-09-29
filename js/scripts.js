@@ -60,7 +60,7 @@ const validarFormulario = () => {
     } else if (new Number(altura.value) < 0) {
         msg += "O campo 'Altura' deve ser positivo!\n";
     } else if (new Number(altura.value) > 4) {
-        msg += "A altura deve ser dada em metros!\nExemplo: 1,75.\nA Altura deve ser, no máximo, 4m!";
+        msg += "A altura deve ser dada em metros.\nExemplo: 1,75.\nA Altura deve ser, no máximo, 4m.";
     }
 
     // if (document.querySelector('input[name="sexo"]:checked') === null)
