@@ -1,5 +1,5 @@
 //  Define o nome e versão do cache atual
-var nomeCache = 'cache-RG-v1.0';
+var nomeCache = 'cache-RG-v1.1';
 
 // Armazenda todos os arquivos da aplicação no cache atual
 self.addEventListener('install', () => {
@@ -69,7 +69,23 @@ self.addEventListener('fetch', (event) => {
             if (recurso)
                 return recurso;
             else {
-                fetch(event.request).then((recursoWeb) => {
+                return fetch(event.request).then((recursoWeb) => {
+                    cache.put(event.request, recursoWeb.clone());
+                    return recursoWeb;
+                }).catch(() => { return 'Recurso indisponível.' });
+            }
+        });
+    });
+    event.respondWith(resposta);
+});
+
+self.addEventListener('fetch', (event) => {
+    let resposta = caches.open(nomeCache).then((cache) => {
+        return cache.match(event.request).then((recurso) => {
+            if (recurso)
+                return recurso;
+            else {
+                return fetch(event.request).then((recursoWeb) => {
                     cache.put(event.request, recursoWeb.clone());
                     return recursoWeb;
                 }).catch(() => { return 'Recurso indisponível.' });

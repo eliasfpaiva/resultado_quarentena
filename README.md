@@ -1,6 +1,7 @@
 # Resultado da quarentena
 
 **Elias Flávio de Paiva**
+### Repl.it https://repl.it/@eliasfpaiva
 
 O objetivo desta aplicação é permitir o cadastro de medições de características corporais para acompanhamento do IMC de quem utiliza a aplicação.
 
