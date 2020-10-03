@@ -22,7 +22,7 @@ Ao pé da página há:
 
 Nesta tela encontramos os campos para preenchimento, são apenas 2 campos, sendo:
  - Peso: que deve ser informado em quilogramas, não podendo ser negativo.
- - Altura: que deve ser informada em metros, deve ser maior que zero e é aceito o limíte máximo de 4 metros.
+ - Altura: que deve ser informada em metros, deve ser maior que zero e é aceito o limite máximo de 4 metros.
 
  O campo altura, já vem preenchido após o primeiro cadastro com a última altura informada, podendo ser atualizada.
 

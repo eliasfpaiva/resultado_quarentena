@@ -1,5 +1,6 @@
 //  Define o nome e versão do cache atual
 var nomeCache = 'cache-RG-v1.1';
+var diaCache = 32; // Inicio com 32, para que, independente do dia em que a pessoa acesso, a primeira atualização aconteça.
 
 // Armazenda todos os arquivos da aplicação no cache atual
 self.addEventListener('install', () => {
@@ -64,22 +65,12 @@ self.addEventListener('activate', (e) => {
 // caso não encontre busca o recurso na web, o armazenda no cache
 // e retorna o recurso baixado
 self.addEventListener('fetch', (event) => {
-    let resposta = caches.open(nomeCache).then((cache) => {
-        return cache.match(event.request).then((recurso) => {
-            if (recurso)
-                return recurso;
-            else {
-                return fetch(event.request).then((recursoWeb) => {
-                    cache.put(event.request, recursoWeb.clone());
-                    return recursoWeb;
-                }).catch(() => { return 'Recurso indisponível.' });
-            }
-        });
-    });
-    event.respondWith(resposta);
-});
+    // Este código obriga a limpeza do cache, pelo menos uma vez ao dia.
+    if ((new Date()).getDate() !== diaCache) {
+        diaCache = (new Date()).getDate();
+        caches.delete(nomeCache);
+    }
 
-self.addEventListener('fetch', (event) => {
     let resposta = caches.open(nomeCache).then((cache) => {
         return cache.match(event.request).then((recurso) => {
             if (recurso)
@@ -88,7 +79,7 @@ self.addEventListener('fetch', (event) => {
                 return fetch(event.request).then((recursoWeb) => {
                     cache.put(event.request, recursoWeb.clone());
                     return recursoWeb;
-                }).catch(() => { return 'Recurso indisponível.' });
+                }).catch(() => { return 'Recurso indisponível.'; });
             }
         });
     });
