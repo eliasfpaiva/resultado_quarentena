@@ -1,5 +1,5 @@
 //  Define o nome e versão do cache atual
-var nomeCache = 'cache-RG-v1.1';
+var nomeCache = 'cache-RG-v1.2';
 
 // Armazenda todos os arquivos da aplicação no cache atual
 self.addEventListener('install', () => {
