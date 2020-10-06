@@ -1,5 +1,6 @@
 //  Define o nome e versão do cache atual
-var nomeCache = 'cache-RG-v1.2';
+var nomeCache = 'cache-RG-v1.4';
+var diaServiceWorker = 32; // Inicializo com 32, para garantir a atualização ao primeiro uso.
 
 // Armazenda todos os arquivos da aplicação no cache atual
 self.addEventListener('install', () => {
@@ -60,10 +61,14 @@ self.addEventListener('activate', (e) => {
     );
 });
 
-// Tenta carregar qualquer recurso a partir do cache
-// caso não encontre busca o recurso na web, o armazenda no cache
-// e retorna o recurso baixado
+// Quando algum recurso é solicitado este método é chamado
 self.addEventListener('fetch', (event) => {
+
+    forcarAtualizacaoServiceWorker();
+
+    // Tenta carregar qualquer recurso a partir do cache
+    // caso não encontre busca o recurso na web, o armazenda no cache
+    // e retorna o recurso baixado
     let resposta = caches.open(nomeCache).then((cache) => {
         return cache.match(event.request).then((recurso) => {
             if (recurso)
@@ -78,3 +83,17 @@ self.addEventListener('fetch', (event) => {
     });
     event.respondWith(resposta);
 });
+
+// Tive dificuldades com a atualização do Service Worker vigente para que
+// um novo cache fosse criado, este método tem a função de forçar a atualização e 
+// ativação de um novo Service Worker
+const forcarAtualizacaoServiceWorker = () => {
+    if ((new Date()).getDate() !== diaServiceWorker) {
+        if (navigator.onLine) {
+            self.registration.update().then(() => {
+                diaServiceWorker = (new Date()).getDate();
+                self.skipWaiting();
+            });
+        }
+    }
+}
