@@ -1,6 +1,9 @@
 //  Define o nome e versão do cache atual
-var nomeCache = 'cache-RG-v1.4';
-var diaServiceWorker = 32; // Inicializo com 32, para garantir a atualização ao primeiro uso.
+var nomeCache = 'cache-RG-v1.5';
+
+// Variável de controle de atualizações do Service Worker
+// Inicializo com 32, para garantir a atualização ao primeiro uso.
+var diaServiceWorker = 32;
 
 // Armazenda todos os arquivos da aplicação no cache atual
 self.addEventListener('install', () => {
