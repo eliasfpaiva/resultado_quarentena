@@ -1,11 +1,12 @@
 //  Define o nome e versão do cache atual
-var nomeCache = 'cache-RG-v1.5';
+var nomeCache = 'cache-RG-v1.9';
 
 // Variável de controle de atualizações do Service Worker
 // Inicializo com 32, para garantir a atualização ao primeiro uso.
 var diaServiceWorker = 32;
 
 // Armazenda todos os arquivos da aplicação no cache atual
+// E força a ativação do novo service Worker
 self.addEventListener('install', () => {
     caches.open(nomeCache).then((cache) => {
         cache.addAll([
@@ -45,6 +46,7 @@ self.addEventListener('install', () => {
             '/css/stilos.css'
         ]);
     })
+    self.skipWaiting();
 });
 
 // Recupera todos os nomes de cache e apaga aqueles
