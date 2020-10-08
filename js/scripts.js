@@ -19,7 +19,7 @@ class IMC {
         this.peso = new Number(peso);
         this.altura = new Number(altura);
         // Monta uma data no formato mais comum para exibição
-        this.data = data.getDate() + '/' + ((data.getMonth() + 1).toString().padStart(2, '0')) + '/' + data.getFullYear();
+        this.data = (data.getDate().toString().padStart(2, '0')) + '/' + ((data.getMonth() + 1).toString().padStart(2, '0')) + '/' + data.getFullYear();
         // Calcula e armazena o I.M.C.
         this.imc = new Number((new Number(this.peso) / (new Number(this.altura) * new Number(this.altura))).toFixed(2));
     }
