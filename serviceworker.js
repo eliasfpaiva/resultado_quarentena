@@ -1,5 +1,5 @@
 //  Define o nome e versão do cache atual
-var nomeCache = 'cache-RQ-3.2';
+var nomeCache = 'cache-RQ-3.5';
 
 // Variável de controle de atualizações do Service Worker
 // Inicializo com 32, para garantir a atualização ao primeiro uso.
