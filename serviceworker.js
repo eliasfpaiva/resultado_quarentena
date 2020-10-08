@@ -1,5 +1,5 @@
 //  Define o nome e versão do cache atual
-var nomeCache = 'cache-RQ-3.0';
+var nomeCache = 'cache-RQ-3.1';
 
 // Variável de controle de atualizações do Service Worker
 // Inicializo com 32, para garantir a atualização ao primeiro uso.
@@ -14,6 +14,7 @@ self.addEventListener('install', () => {
             '/index.html',
             '/manifest.webmanifest',
             '/recursos/imagens/balanca_bonita.png',
+            '/recursos/imagens/qr-code.png',
             '/recursos/icones/android-icon-36x36.png',
             '/recursos/icones/android-icon-48x48.png',
             '/recursos/icones/android-icon-72x72.png',
