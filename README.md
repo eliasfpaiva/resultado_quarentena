@@ -9,7 +9,7 @@ O objetivo desta aplicação é permitir o cadastro de medições de caracterís
  
 ### Tela principal
  
-Esta tela exibe uma barra de cabeçalho com informações sobre os dados fornecidos e a classificação do I.M.C.. Também fornece um link para a página da OMS onde se pode obter o relatório que contém uma tabela de referência para a classificação do I.M.C.. Todas as telas contam com esta barra de cabeçalho de igual modo.
+Esta tela exibe uma barra de cabeçalho com informações sobre os dados fornecidos e a classificação do I.M.C.. O nome da aplicação "RESULTADO DA QUARENTENA" na tela é clicável e abre uma tela com um QRCode que facilita o compartilhamento da aplicação. O cabeçalho também fornece um link para a página da OMS onde se pode obter o relatório que contém uma tabela de referência para a classificação do I.M.C.. Todas as telas contam com esta barra de cabeçalho de igual modo.
  
 Em seguida, caso a lista de I.M.C. esteja vazia, uma imagem será exibida com mensagem informando não haver registros e convidando a iniciar o processo. Caso a lista contenha registros, ela será exibida com o valor do I.M.C. registrado, a data do registro e um botão para exclusão do registro. Clicando no valor do I.M.C. ou na data, será exibida a tela de visualização do registro lançado. Se todos os registros forem excluídos a imagem de lista vazia volta a ser exibida.
  
@@ -35,6 +35,10 @@ Ao clicar em salvar, uma mensagem de sucesso é exibida.
 Nesta tela, é possível apenas visualizar os dados de um registro contando com os valores de peso e altura informados no dados registrados e também com a data e o I.M.C. do registro específico. Todos os dados apenas para leitura, não são permitidas edições neste caso.
  
 Também são exibidos dois botões sendo um para exclusão do registro e retorno à listagem e outro apenas para retorno à lista de registros.
+
+### Tela do QRCode
+
+Esta tela exibe um QRCode que pode ser escaneado, fornecendo um link para acesso à aplicação, facilitando o compartilhamento e um botão para retornar á tela principal.
  
 ## 2. Dados do usuário
  

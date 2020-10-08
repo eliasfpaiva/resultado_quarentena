@@ -58,19 +58,30 @@ button {
     width: 100%;
 }
 
-.listavazia {
+.listavazia, .telaqrcode {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.listavazia{
     opacity: 0.5;
+}
+
+.telaqrcode{
+    margin-top: 3rem;
 }
 
 .listavazia * {
     padding-bottom: 1rem;
 }
 
-.listavazia img {
+.telaqrcode * {
+    padding-bottom: 2rem;
+}
+
+.listavazia img, .telaqrcode img {
     max-width: 90%;
     max-height: 15rem;
 }

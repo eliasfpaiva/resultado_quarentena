@@ -320,6 +320,7 @@ const calcularValorGrafico = () => {
 // Insere funções principais, ao carregar a aplicação
 // e executa chamadas para inicialização do sistema.
 onload = () => {
+    nome.onclick = () => { mostrarPagina(4); }
     btn_novoimc.onclick = () => {
         mostrarPagina(2);
         altura.value = localStorage.getItem('altura');
@@ -329,6 +330,7 @@ onload = () => {
         mostrarPagina(1);
     }
     btn_voltar.onclick = () => { mostrarPagina(1); }
+    btn_voltar2.onclick = () => { mostrarPagina(1); }
     btn_salvar.onclick = () => { salvar(); }
     btn_voltarmodal.onclick = () => { fecharmodal(); }
     btn_excluir.addEventListener('click', (event) => {
